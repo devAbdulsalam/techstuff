@@ -11,7 +11,7 @@ const userRoutes = require('./routes/user')
 const app = express();
 app.use(
     cors({
-        origin: ["http://localhost:3000", "https://shara-app.vercel.app",],
+        origin: ["http://localhost:3000", "https://shara.onrender.com"],
         credentials: true,
     })
 );
