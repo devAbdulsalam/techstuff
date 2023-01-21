@@ -9,9 +9,12 @@ const userRoutes = require('./routes/user')
 
 // express app
 const app = express();
-app.use(cors({
-    origin: "https://localhost:3000",
-}));
+app.use(
+    cors({
+        origin: ["http://localhost:3000", "https://shara-app.vercel.app",],
+        credentials: true,
+    })
+);
 
 app.use(compression());
 app.use(express.json());
@@ -19,14 +22,14 @@ app.use(express.json());
 // //connect database
 mongoose.connect(process.env.MDB_URL, {
     useNewUrlParser: true,
-    useUnifiedTopology : true
+    useUnifiedTopology: true
 })
-.then(()=> {
-    app.listen(process.env.PORT, () => {
-        console.log('connect to database successfully and listening on port', process.env.PORT);
+    .then(() => {
+        app.listen(process.env.PORT, () => {
+            console.log('connect to database successfully and listening on port', process.env.PORT);
+        })
     })
-})
-.catch((err) => console.log(err));
+    .catch((err) => console.log(err));
 
 // // blogs routes
 app.use("/blogs", blogRoutes)
