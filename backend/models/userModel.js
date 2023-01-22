@@ -31,8 +31,8 @@ userSchema.statics.signup = async function(name, phone, email, password) {
     if (!password) {
         throw Error('password is required')
     }
-    if (!phone || !email ) {
-        throw Error('Input Phone or Email-address')
+    if (!phone ) {
+        throw Error('Input Phone')
     }
         // //Validator
     if(!validator.isStrongPassword(password)){

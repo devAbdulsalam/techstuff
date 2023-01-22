@@ -37,7 +37,5 @@ app.use("/blogs", blogRoutes)
 // // users routes
 app.use("/user", userRoutes)
 
-// // users routes
-app.use("/wallet", userRoutes)
 
 
